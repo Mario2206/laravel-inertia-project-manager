@@ -16,7 +16,6 @@ class CreateClientsTable extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("name");
             $table->longText("description");
             $table->string("business_name");
             $table->string("legal_status");
@@ -28,6 +27,7 @@ class CreateClientsTable extends Migration
             $table->string("postal_code");
             $table->string("city");
             $table->foreignId("user_id")->constrained("users");
+
         });
     }
 
