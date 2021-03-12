@@ -23,20 +23,20 @@ class ProjectFactory extends Factory
      */
     public function definition()
     {
-        $startAt = $this->faker->dateTime();
+        $startAt = $this->faker->dateTimeBetween("-5 years");
 
         return [
             "manager_name" => $this->faker->name(),
             "manager_surname" => $this->faker->name(),
-            "phone_number" => $this->faker->randomNumber(10),
+            "phone_number" => $this->faker->phoneNumber(),
             "manager_email" => $this->faker->unique()->email,
             "title" => $this->faker->sentence(),
-            "description" => $this->faker->sentences(),
+            "description" => $this->faker->sentence(),
             "start_at" => $startAt,
             "end_at" => $this->faker->dateTimeBetween($startAt, null),
-            "status" => $this->faker->randomKey(["CURRENT", "DONE", "CANCEL"]),
-            "days_sold" => $this->faker->randomNumber(),
-            "client_id" => DB::table("clients")->get("id")->random()->first()->id
+            "status" => $this->faker->randomElement(["CURRENT", "DONE", "CANCEL"]),
+            "days_sold" => $this->faker->numberBetween(0, 100),
+            "client_id" => DB::table("clients")->get("id")->random(1)->first()->id
         ];
     }
 }
