@@ -2,18 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
 
 class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $clients = Client::where("user_id", $user->id)
+            ->join("projects", "clients.id", "=", "projects.client_id")
+            ->select("clients.*", DB::raw("count(clients.id) as projects_quantity"))
+            ->groupBy("clients.id")
+            ->get();
+
+        return Inertia::render("Client/Index", compact("clients"));
     }
 
     /**

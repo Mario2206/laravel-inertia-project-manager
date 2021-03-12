@@ -7,15 +7,16 @@
 </template>
 
 <script>
-    export default {
-        props: ['href', 'active'],
+export default {
+    name: "NavLink",
+    props: ['href', 'active'],
 
-        computed: {
-            classes() {
-                return !this.active
-                            ? 'transition duration-100 ease-in-out bg-gray-900  bg-opacity-0 group-hover:bg-opacity-100 p-2 rounded '
-                            : 'transition duration-100 ease-in-out bg-gray-900 p-2 rounded '
-            }
+    computed: {
+        classes() {
+            return !this.active
+                ? 'transition duration-100 ease-in-out bg-gray-900  bg-opacity-0 group-hover:bg-opacity-100 p-2 rounded '
+                : 'transition duration-100 ease-in-out bg-gray-900 p-2 rounded '
         }
     }
+}
 </script>

@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors')
 
 module.exports = {
     purge: [
@@ -15,6 +16,15 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
+        colors: {
+            gray: colors.coolGray,
+            blue: colors.lightBlue,
+            red: colors.red,
+            pink: colors.fuchsia,
+            white : colors.white,
+            indigo : colors.indigo,
+
+        }
     },
 
     variants: {
