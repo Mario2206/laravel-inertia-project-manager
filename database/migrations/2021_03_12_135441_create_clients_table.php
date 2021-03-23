@@ -23,7 +23,7 @@ class CreateClientsTable extends Migration
             $table->string("siret");
             $table->string("naf_code");
             $table->string("country");
-            $table->text("adress");
+            $table->text("address");
             $table->string("postal_code");
             $table->string("city");
             $table->foreignId("user_id")->constrained("users");

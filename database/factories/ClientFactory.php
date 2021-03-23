@@ -31,7 +31,7 @@ class ClientFactory extends Factory
             'siret' => $this->faker->numberBetween(10000000000000,99999999999999),//14 chiffre dans le siret
             'naf_code' =>$this->faker->numberBetween(1000,9999) . $this->faker->randomLetter(1),
             'country' => $this->faker->country(),
-            'adress' =>$this->faker->address(),
+            'address' =>$this->faker->address(),
             'postal_code' =>$this->faker->postcode(),
             'city' =>$this->faker->city(),
             'user_id' => DB::table('users')->get('id')->random(1)->first()->id

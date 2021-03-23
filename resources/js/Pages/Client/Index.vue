@@ -2,7 +2,7 @@
     <app-layout>
         <template #header class="flex">
             <h1 class="text-4xl text-white font-bold">Clients</h1>
-            <add-button value="Créer un client"/>
+            <add-button type="inertia-link" :href="route('clients.create')" value="Créer un client"/>
         </template>
         <ClientList :clients="clients" />
     </app-layout>
